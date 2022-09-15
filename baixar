@@ -1,0 +1,54 @@
+#!/bin/bash
+clear
+function titulo(){
+echo ' _    _ _____  _____ _____ 
+| |  | |  __ \|  ___|_   _|
+| |  | | |  \/| |__   | |  
+| |/\| | | __ |  __|  | |  
+\  /\  / |_\ \| |___  | |  
+ \/  \/ \____/\____/  \_/  
+                           
+'
+}
+
+function infos(){
+titulo;
+read -p 'Entre com o link (pressione ENTER para continuar o ultimo Donwload): ' link;
+read -p 'Entre com a velocidade (em kb/s): ' velocidade;
+if [[ -z "$velocidade" ]]; then
+	velocidade="1024k"
+else
+velocidade=$velocidade\k
+fi
+if [[ -z "$link" ]]; then
+	link=$(<histDown.txt)
+else
+echo $link > ./histDown.txt
+fi
+baixar;
+}
+
+function baixar(){
+wget -c --limit-rate=$velocidade -i histDown.txt -P /mnt/c/Users/`wuser`/Downloads;
+saida=$?;
+if [ $saida -ne 0 ]; then
+	echo -e "O arquivo não pode ser baixado.\n";
+	infos;
+else
+	finalizar;
+fi
+}
+
+function finalizar(){
+/mnt/c/Windows/System32/cmd.exe /c start %USERPROFILE%/\Downloads
+echo "Arquivo baixado com sucesso!"
+#sleep 5
+#kill -9 $PPID
+}
+
+function wuser(){
+user=$(/mnt/c/Windows/System32/cmd.exe /c "echo.%username%")
+echo $user | tr -d '\r'
+}
+
+infos;
