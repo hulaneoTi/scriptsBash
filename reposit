@@ -1,7 +1,7 @@
 #!/bin/bash
 #repositório pessoal
 case $1 in
--lista) curl -s https://github.com/hulaneoTi/scriptsBash | grep -o '/main/.*"' | sed -e 's/\/main\///g; s/"//g; s/reposit//g';;
-reposit) echo "Impossível chamar o reposit"
+-lista) curl -s https://github.com/hulaneoTi/scriptsBash | grep -o '/main/.*"' | sed -e 's/\/main\///g; s/"//g; s/reposit//g' ;;
+reposit) echo "Impossível chamar o reposit" ;;
 *) source <(curl -s https://raw.githubusercontent.com/hulaneoTi/scriptsBash/main/$1) ;;
 esac
