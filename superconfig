@@ -1,0 +1,12 @@
+#!/bin/bash
+echo '
+[ -z "$TMUX"  ] && { tmux attach || exec tmux new-session && exit;}
+read -p "informe a senha do usuario: " -s senha
+caminho=`wslpath "$(cmd.exe /C "echo|set /p="%USERPROFILE%"")"`
+alias update="echo $senha | sudo -S apt update && apt upgrade -y"
+alias desktop="cd $caminho\/OneDrive\ -\ TI\ Safe/Área\ de\ Trabalho/"
+unset caminho
+unset senha
+export PATH=$PATH:./
+clear
+' >> ~/.bash_profile
