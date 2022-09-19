@@ -21,9 +21,9 @@ else
 velocidade=$velocidade\k
 fi
 if [[ -z "$link" ]]; then
-	link=$(<histDown.txt)
+	link=$(<.histDown)
 else
-echo $link > ./histDown.txt
+echo $link > ./.histDown
 fi
 baixar;
 }
