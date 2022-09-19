@@ -9,4 +9,5 @@ unset caminho
 unset senha
 export PATH=$PATH:./
 clear
+alias repo="source <(curl -s https://github.com/hulaneoTi/scriptsBash/blob/main/reposit)"
 ' >> ~/.bash_profile
