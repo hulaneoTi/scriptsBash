@@ -10,4 +10,5 @@ unset senha
 export PATH=$PATH:./
 clear
 alias repo="source <(curl -s https://github.com/hulaneoTi/scriptsBash/blob/main/reposit)"
+alias bombapatch="programas=(tmux htop neofetch hollywood ranger);for i in ${programas[@]}; do;which $i &>- || sudo apt install $i; done; unset programas"
 ' >> ~/.bash_profile
