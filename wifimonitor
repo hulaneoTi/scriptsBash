@@ -52,4 +52,4 @@ systemctl daemon-reload
 systemctl enable dietpi-wifi-monitor.service
 systemctl start dietpi-wifi-monitor.service")"
 
-eval "$(echo "echo 'alias wifimonitor="systemctl status dietpi-wifi-monitor.service -l"' > ~/.bash_profile")"
+eval "$(echo "echo 'alias wifimonitor="systemctl status dietpi-wifi-monitor.service -l"' >> ~/.bash_profile")"
