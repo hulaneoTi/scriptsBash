@@ -33,9 +33,9 @@ do
 
 }" > /etc/dietpi/dietpi-wifi-monitor.sh
 
-eval "$(echo "chmod +x  /etc/dietpi/dietpi-wifi-monitor.sh")"
+echo "chmod +x  /etc/dietpi/dietpi-wifi-monitor.sh" | bash
 
-eval "$(echo "cat << _EOF_ > /etc/systemd/system/dietpi-wifi-monitor.service
+echo "cat << _EOF_ > /etc/systemd/system/dietpi-wifi-monitor.service
 [Unit]
 Description=Monitors loss of WiFi connection and automatically reconnects
 After=network.target network-online.target
@@ -50,6 +50,6 @@ WantedBy=multi-user.target
 _EOF_
 systemctl daemon-reload
 systemctl enable dietpi-wifi-monitor.service
-systemctl start dietpi-wifi-monitor.service")"
+systemctl start dietpi-wifi-monitor.service" | bash
 
-eval "$(echo "echo 'alias wifimonitor="systemctl status dietpi-wifi-monitor.service -l"' >> ~/.bash_profile")"
+echo 'alias wifimonitor="systemctl status dietpi-wifi-monitor.service -l"' >> ~/.bash_profile | bash
