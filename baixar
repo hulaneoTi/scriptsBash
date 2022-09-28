@@ -32,7 +32,7 @@ function baixar(){
 wget -c --limit-rate=$velocidade -i $link -P /mnt/c/Users/`wuser`/Downloads;
 saida=$?;
 if [ $saida -ne 0 ]; then
-	echo -e "O arquivo não pode ser baixado.\n";
+	clear; echo -e "O arquivo não pode ser baixado.\n"; sleep 2; clear;
 	infos;
 else
 	finalizar;
