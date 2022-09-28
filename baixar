@@ -25,6 +25,7 @@ if [[ -z "$link" ]]; then
 else
 echo $link > ./.histDown
 fi
+cmd.exe /c attrib +h .histDown;
 baixar;
 }
 
