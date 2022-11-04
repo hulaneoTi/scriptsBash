@@ -1,5 +1,5 @@
 #!/bin/bash
-programas=(tmux htop neofetch hollywood ranger mc)
+programas=(tmux htop neofetch hollywood ranger mc grepcidr)
 for i in ${programas[@]}; do
 which $i &>- || sudo apt install $i
 done
