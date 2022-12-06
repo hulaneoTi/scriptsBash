@@ -1,0 +1,9 @@
+#!/bin/bash
+loop() {
+	while read -r -a info || [ -n "$info" ]
+	do
+		echo "${info[1]} ${info[0]}" > ${info[0]}.txt
+	done < lista.txt
+}
+
+[ -f lista.txt ] && loop || echo -e "\033[0;31mArquivo de lista não encontrado.\033[0m"
