@@ -1,0 +1,5 @@
+#!/bin/bash
+	while read -r -a info || [ -n "$info" ]
+	do
+		echo "${info[1]} ${info[0]}" > ${info[0]}.txt
+	done < $1
