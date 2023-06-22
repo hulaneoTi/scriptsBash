@@ -73,7 +73,7 @@ ID=${ID//\"/}
 
 case $ID in
 centos) centos;;
-debian) debian;;
+debian|kali) debian;;
 fedora) fedora;;
 raspbian) raspbian;;
 rhel) rhel;;
