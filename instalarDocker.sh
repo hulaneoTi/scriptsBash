@@ -68,12 +68,20 @@ sudo apt-get update
 sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
+function kali() {
+printf '%s\n' "deb https://download.docker.com/linux/debian bullseye stable" | sudo tee /etc/apt/sources.list.d/docker-ce.list
+curl -fsSL https://download.docker.com/linux/debian/gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/docker-ce-archive-keyring.gpg
+sudo apt update
+sudo apt install -y docker-ce docker-ce-cli containerd.io
+}
+
 export $(grep "^ID=" /etc/os-release)
 ID=${ID//\"/}
 
 case $ID in
 centos) centos;;
-debian|kali) debian;;
+debian) debian;;
+kali) kali;;
 fedora) fedora;;
 raspbian) raspbian;;
 rhel) rhel;;
