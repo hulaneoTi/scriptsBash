@@ -77,7 +77,7 @@ debian|kali) debian;;
 fedora) fedora;;
 raspbian) raspbian;;
 rhel) rhel;;
-sles) rhel;;
+sles) sles;;
 ubuntu) ubuntu;;
 *) echo "Sistema não identificado";;
 esac
